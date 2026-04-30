@@ -1,0 +1,24 @@
+<!-- ================= TASK 1: Language Translation Tool ================= --><!DOCTYPE html><html>
+<head>
+<title>Translation Tool</title>
+</head>
+<body>
+<h2>Language Translation Tool</h2>
+<textarea id="text" placeholder="Enter text"></textarea><br><br>
+<select id="lang">
+<option value="hi">Hindi</option>
+<option value="en">English</option>
+</select>
+<button onclick="translateText()">Translate</button>
+<p id="output"></p><script>
+function translateText(){
+ let text=document.getElementById("text").value;
+ let lang=document.getElementById("lang").value;
+ fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${lang}`)
+ .then(res=>res.json())
+ .then(data=>{
+ document.getElementById("output").innerText=data.responseData.translatedText;
+ });
+}
+</script></body>
+</html>

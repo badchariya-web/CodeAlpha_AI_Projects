@@ -1,0 +1,21 @@
+<!-- ================= TASK 2: FAQ Chatbot ================= --><!DOCTYPE html><html>
+<head>
+<title>FAQ Chatbot</title>
+</head>
+<body>
+<h2>Simple Chatbot</h2>
+<input type="text" id="userInput" placeholder="Ask something">
+<button onclick="chat()">Send</button>
+<p id="chatOutput"></p><script>
+function chat(){
+ let input=document.getElementById("userInput").value.toLowerCase();
+ let response="I don't understand";
+
+ if(input.includes("hello")) response="Hi! How can I help you?";
+ else if(input.includes("price")) response="Price is 500 Rs";
+ else if(input.includes("bye")) response="Goodbye!";
+
+ document.getElementById("chatOutput").innerText=response;
+}
+</script></body>
+</html>
